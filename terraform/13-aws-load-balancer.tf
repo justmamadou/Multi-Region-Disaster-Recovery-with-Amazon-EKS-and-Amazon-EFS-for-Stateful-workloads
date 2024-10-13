@@ -23,7 +23,7 @@ resource "aws_iam_role" "aws_lbc_primary" {
 
 resource "aws_iam_policy" "aws_lbc_primary" {
   policy = file("./iam/AWSLoadBalancerController.json")
-  name   = "AWSLoadBalancerController"
+  name   = "AWSLoadBalancerController-Primary"
   provider = aws.eu-west-1
 }
 
@@ -99,7 +99,7 @@ resource "aws_iam_role" "aws_lbc_backup" {
 
 resource "aws_iam_policy" "aws_lbc_backup" {
   policy = file("./iam/AWSLoadBalancerController.json")
-  name   = "AWSLoadBalancerController"
+  name   = "AWSLoadBalancerController-Bckup"
   provider = aws.eu-west-2
 }
 

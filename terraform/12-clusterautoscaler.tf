@@ -69,7 +69,7 @@ resource "aws_eks_pod_identity_association" "cluster_autoscaler_primary" {
 }
 
 resource "helm_release" "cluster_autoscaler_primary" {
-  name = "autoscaler"
+  name = "autoscaler-${local.env1}"
   provider = helm.helm_primary
 
   repository = "https://kubernetes.github.io/autoscaler"
@@ -169,7 +169,7 @@ resource "aws_eks_pod_identity_association" "cluster_autoscaler_backup" {
 }
 
 resource "helm_release" "cluster_autoscaler_backup" {
-  name = "autoscaler"
+  name = "autoscaler-${local.env2}"
   provider = helm.helm_backup
 
   repository = "https://kubernetes.github.io/autoscaler"

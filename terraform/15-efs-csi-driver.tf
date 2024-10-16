@@ -1,4 +1,4 @@
-/* // Creation du file system
+// Creation du file system
 resource "aws_efs_file_system" "eks_primary" {
   creation_token = "eks"
   provider = aws.eu-west-1
@@ -26,6 +26,7 @@ resource "aws_efs_mount_target" "zone_b_primary" {
   security_groups = [aws_eks_cluster.eks_primary.vpc_config[0].cluster_security_group_id]
   provider = aws.eu-west-1
 }
+
 
 data "aws_iam_policy_document" "efs_csi_driver_primary" {
   statement {
@@ -207,11 +208,14 @@ resource "helm_release" "efs_csi_driver_backup" {
 # Optional since we already init helm provider (just to make it self contained)
 data "aws_eks_cluster" "eks_v2_backup" {
   name = aws_eks_cluster.eks_backup.name
+  provider = aws.eu-west-2
 }
+
 
 # Optional since we already init helm provider (just to make it self contained)
 data "aws_eks_cluster_auth" "eks_v2_backup" {
   name = aws_eks_cluster.eks_backup.name
+  provider = aws.eu-west-2
 }
 
 provider "kubernetes" {
@@ -220,6 +224,7 @@ provider "kubernetes" {
   token                  = data.aws_eks_cluster_auth.eks_v2_backup.token
   alias = "kubernetes-backup"
 }
+
 
 resource "kubernetes_storage_class_v1" "efs_backup" {
   metadata {
@@ -238,4 +243,4 @@ resource "kubernetes_storage_class_v1" "efs_backup" {
   mount_options = ["iam"]
 
   depends_on = [helm_release.efs_csi_driver_backup]
-} */
+} 

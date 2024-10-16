@@ -84,7 +84,7 @@ L'architecture repose sur plusieurs composants critiques, dont les clusters EKS 
 Voici une capture d'écran montrant la configuration des VPC :
 
 ![Configuration des VPC](images/primary-vpc.png)
-(images/backup-vpc-main.png)
+![](images/backup-vpc-main.png)
 
 
 ### 2. Configuration du cluster EKS
@@ -92,13 +92,13 @@ Voici une capture d'écran montrant la configuration des VPC :
 Voici une capture d'écran montrant la configuration du cluster EKS :
 
 ![Configuration du cluster EKS](images/primary-eks.png)
-(images/primary-backup.png)
+![](images/primary-backup.png)
 
 ### 3. Les Mount Target d'EFS sur les differents subnets
 
 Cette capture d'écran montre la configuration des mount targets :
-(images/primary-efs-mount-target.png)
-(images/backup-efs-mount-target.png)
+![](images/primary-efs-mount-target.png)
+![](images/backup-efs-mount-target.png)
 
 
 ### 4. Réplication d'EFS entre les régions
@@ -108,7 +108,7 @@ Cette capture d'écran montre la configuration de la réplication entre deux sys
 ![Réplication d'EFS](images/replication.png)
 
 ### 5. Création de Pod pour vérifier que les storageclass fonctionne
-(images/testing-with-pod.png)
+![](images/testing-with-pod.png)
 
 
 ## Conclusion

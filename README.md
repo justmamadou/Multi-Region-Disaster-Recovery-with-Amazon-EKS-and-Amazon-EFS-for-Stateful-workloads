@@ -92,7 +92,7 @@ Voici une capture d'écran montrant la configuration des VPC :
 Voici une capture d'écran montrant la configuration du cluster EKS :
 
 ![Configuration du cluster EKS](images/primary-eks.png)
-![](images/primary-backup.png)
+![](images/backup-eks.png)
 
 ### 3. Les Mount Target d'EFS sur les differents subnets
 

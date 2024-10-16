@@ -75,6 +75,42 @@ L'architecture repose sur plusieurs composants critiques, dont les clusters EKS 
 - **Amazon CloudWatch** : Surveillance des ressources EKS et EFS avec des alarmes pour signaler toute anomalie.
 - **Elastic Load Balancer** : Monitoring du trafic réseau pour basculer entre les clusters dans chaque région en fonction de la disponibilité.
 
+
+
+## Étapes de déploiement
+
+### 1. Configuration des VPC
+
+Voici une capture d'écran montrant la configuration des VPC :
+
+![Configuration des VPC](images/primary-vpc.png)
+(images/backup-vpc-main.png)
+
+
+### 2. Configuration du cluster EKS
+
+Voici une capture d'écran montrant la configuration du cluster EKS :
+
+![Configuration du cluster EKS](images/primary-eks.png)
+(images/primary-backup.png)
+
+### 3. Les Mount Target d'EFS sur les differents subnets
+
+Cette capture d'écran montre la configuration des mount targets :
+(images/primary-efs-mount-target.png)
+(images/backup-efs-mount-target.png)
+
+
+### 4. Réplication d'EFS entre les régions
+
+Cette capture d'écran montre la configuration de la réplication entre deux systèmes de fichiers EFS :
+
+![Réplication d'EFS](images/replication.png)
+
+### 5. Création de Pod pour vérifier que les storageclass fonctionne
+(images/testing-with-pod.png)
+
+
 ## Conclusion
 
 Cette architecture fournit une solution robuste pour garantir la disponibilité et la persistance des données dans des environnements critiques. En utilisant EKS et EFS, nous avons assuré une gestion efficace des conteneurs et une réplication des données entre plusieurs régions AWS pour un Disaster Recovery optimisé.
